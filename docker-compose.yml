@@ -1,0 +1,45 @@
+version: '3.8'
+services:
+  rabbitmq:
+    image: rabbitmq:latest
+    restart: always
+    container_name: rabbitmq
+    volumes:
+      - ./rabbitmq/databases/:/var/lib/rabbitmq/
+      - ./rabbitmq/logs/:/var/log/rabbitmq/
+    ports:
+      - 5672:5672
+      - 15672:15672
+  web:
+    image: web:latest
+    container_name: cms
+    restart: always
+    depends_on:
+      - upload
+      - mailer
+    ports:
+      - 3000:80
+  upload:
+    image: upload:latest
+    container_name: upload
+    restart: always
+    environment:
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASSWORD=${SMTP_PASSWORD}
+      - PROJECT_NAME=${PROJECT_NAME}
+      - RABBIT_MQ_HOST=${RABBIT_MQ_HOST}
+    ports:
+      - 3001:80
+  mailer:
+    image: mailer:latest
+    container_name: mailer
+    restart: always
+    environment:
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASSWORD=${SMTP_PASSWORD}
+      - PROJECT_NAME=${PROJECT_NAME}
+      - RABBIT_MQ_HOST=${RABBIT_MQ_HOST}
