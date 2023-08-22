@@ -1,3 +1,5 @@
+import { FileUpload } from "./upload.interface";
+
 export abstract class UploadService {
-    abstract uploadFile(file: Express.Multer.File): Promise<void>;
+    abstract uploadFile(file: FileUpload): Promise<void>;
 }

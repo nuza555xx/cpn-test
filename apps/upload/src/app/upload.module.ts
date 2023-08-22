@@ -32,9 +32,11 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
   controllers: [
     UploadController
   ],
-  providers: [{
-    provide: UploadService,
-    useClass: Upload
-  }],
+  providers: [
+    {
+      provide: UploadService,
+      useClass: Upload
+    }
+  ],
 })
 export class UploadModule { }
