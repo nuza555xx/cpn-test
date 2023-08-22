@@ -3,6 +3,7 @@ import { Test, TestingModule, TestingModuleBuilder } from '@nestjs/testing';
 import { Upload, } from './upload.service';
 import { UploadService } from './upload.abstract';
 import { ClientProxy } from '@nestjs/microservices';
+import { MAILER_SERVICE_PROVIDER } from './upload.constant';
 
 describe('AppService', () => {
   let service: UploadService;
@@ -18,14 +19,14 @@ describe('AppService', () => {
           useClass: Upload
         },
         {
-          provide: 'MAILER_SERVICE',
+          provide: MAILER_SERVICE_PROVIDER,
           useValue: { emit: jest.fn() },
         }
       ],
     }).compile();
 
     service = moduleRef.get<UploadService>(UploadService);
-    clientProxy = moduleRef.get<ClientProxy>('MAILER_SERVICE');
+    clientProxy = moduleRef.get<ClientProxy>(MAILER_SERVICE_PROVIDER);
   });
 
   afterAll(async () => {

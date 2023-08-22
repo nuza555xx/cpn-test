@@ -10,7 +10,6 @@ export class MailerService {
   private transporter: Transporter;
   constructor(private configService: ConfigService) {
     const config = this.configService.get<MailerConfig>(ConfigurationName.Mailer)
-    
     this.transporter = createTransport(config);
   }
 

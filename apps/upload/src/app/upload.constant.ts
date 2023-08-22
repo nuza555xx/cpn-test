@@ -9,3 +9,5 @@ export const customStorage = diskStorage({
         callback(null, `${file.originalname}${extname(file.originalname)}`);
     },
 });
+
+export const MAILER_SERVICE_PROVIDER = 'MAILER_SERVICE_PROVIDER'
