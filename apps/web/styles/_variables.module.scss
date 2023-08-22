@@ -1,0 +1,21 @@
+$font-family: 'Prompt', sans-serif;
+$font-weight: 400;
+$font-size: 0.95rem;
+
+$min-height: 100vh;
+$max-width: 100vw;
+
+$border-radius: 7;
+
+$height: 56px;
+$color-text: #272727;
+
+/* The `:export` directive is used in SCSS to export variables or mixins to be used in other files. */
+:export {
+    defaultFontFamily: $font-family;
+    defaultFontSize: $font-size;
+
+    defaultBorderRadius: $border-radius;
+    defaultHeight: $height;
+    defaultColorText: $color-text;
+}
