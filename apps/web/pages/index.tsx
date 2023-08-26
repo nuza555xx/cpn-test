@@ -1,10 +1,7 @@
 import {
-  Badge,
   Box,
   Card,
-  Collapse,
   Container,
-  Fade,
   List,
   Typography,
 } from '@mui/material';
@@ -26,7 +23,7 @@ export function Index() {
             <Box sx={{ width: { md: '100%' } }}>
               <DropzoneComponent />
             </Box>
-            {files.length ? (
+            {files?.length ? (
               <Box sx={{ p: 2 }}>
                 <Typography variant="h6">Uploaded files</Typography>
                 <List>

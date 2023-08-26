@@ -1,6 +1,4 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { Type } from "class-transformer";
-import { IsMimeType, IsNotEmpty, IsNumber, IsUUID } from "class-validator";
 
 export class UploadFileDto {
     @ApiProperty({

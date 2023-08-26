@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@cpn-test/configs": ["libs/configs/src/index.ts"],
+      "@cpn-test/configs": ["libs/configs/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -10,7 +10,7 @@ export class MailerService {
   private transporter: Transporter;
   constructor(private configService: ConfigService) {
     const config = this.configService.get<MailerConfig>(ConfigurationName.Mailer)
-    this.transporter = createTransport(config);
+      this.transporter = createTransport(config);
   }
 
   async sendUploadSuccessAlert(fileInfo: FileInfo, recipientEmail: string) {
